@@ -1,20 +1,34 @@
-<!---
-
-This file is used to generate your project datasheet. Please fill in the information below and delete any unused
-sections.
-
-You can also include images in this folder and reference them in the markdown. Each image must be less than
-512 kb in size, and the combined size of all images must be less than 1 MB.
--->
-
 ## How it works
 
-Explain how your project works
+This project implements a real-time VGA graphics demo using a tunnel (warp) effect generated entirely in hardware using Verilog.
+
+A VGA timing generator produces horizontal and vertical synchronization signals along with pixel coordinates (x, y). These coordinates are used to compute a procedural visual effect without any external memory.
+
+The tunnel effect is created using:
+- Distance approximation from the screen center to form concentric rings
+- Bitwise operations to approximate angular variation
+- A time-based counter to animate motion
+
+The combination of these produces a dynamic illusion of moving through a 3D tunnel. The design uses only simple arithmetic and logic operations, making it efficient and suitable for implementation within a single Tiny Tapeout tile.
+
+RGB outputs are generated using 2-bit color channels, providing multiple color variations based on depth and pattern.
+
 
 ## How to test
 
-Explain how to use your project
+1. Connect the Tiny Tapeout VGA PMOD to a compatible VGA display.
+2. Power on the board and enable the design using the Tiny Tapeout control interface.
+3. Reset the design.
+4. The demo will automatically start running.
+
+You should observe a continuously animated tunnel-like visual effect on the screen, giving the impression of forward motion.
+
+No user input is required.
+
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+- VGA PMOD (required for video output)
+- VGA-compatible display
+
+No other external hardware is used.
