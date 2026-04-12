@@ -26,7 +26,20 @@ module tb ();
   wire VPWR = 1'b1;
   wire VGND = 1'b0;
 `endif
+// Initialize signals
+initial begin
+  clk = 0;
+  rst_n = 0;
+  ena = 1;
+  ui_in = 0;
+  uio_in = 0;
 
+  #100;
+  rst_n = 1;
+end
+
+// Clock generation (25 MHz approx → 40ns period)
+always #20 clk = ~clk;
   // Replace tt_um_example with your module name:
   tt_um_vga_tunnel user_project (
 
