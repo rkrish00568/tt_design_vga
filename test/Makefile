@@ -6,7 +6,7 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 
 # ✅ FIXED
-PROJECT_SOURCES = tt_um_vga_tunnel.v hvsync_generator.v
+PROJECT_SOURCES = tt_um_vga_tunnel.v hvsynch_generator.v
 
 ifneq ($(GATES),yes)
 
